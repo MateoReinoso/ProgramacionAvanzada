@@ -12,33 +12,31 @@
         <title>Autor</title>
     </head>
     <body>
-        <h1>Authors</h1>
+        <h1>Autor!</h1>
         <div>
-            <h3>Choose an author</h3>
-            <form method="get">
-                <input type="checkbox" name="author" value="Daniel">Daniel</br>
-                <input type="checkbox" name="author" value="Mateo">Mateo</br>
-                <input type="checkbox" name="author" value="Luis">Luis</br>
-                <input type="submit" value="Save Authors">
-            </form>
-            <%
-                String[] authors = request.getParameterValues("author");
-                if (authors != null) {
-            %>
-            <h3> You have selected authors:</h3>
-            <ol>
-                <%
-                    for (int i = 0; i < authors.length; ++i) {
+            <h3>
+                Autor
+                <form method="get">
+                    <input type="checkbox" name="author" value="Mateo">Mateo <br>// hacer un jsp que vaya a la base un jsp con js llame un restfull
+                    <input type="checkbox" name="author" value="Daniel">Daniel
+                    <input type="checkbox" name="author" value="Luis">Luis
+                    <input type="submit" value="Save Autor">
+                </form>
+                <% String[] autors = request.getParameterValues("autor");
+                    if (autors != null) {
+
                 %>
-                <li>
-                    <%=authors[i]%>
-                </li>
-                <%
-                    }
-                %>
-            </ol> 
-            <a href ="<%request.getRequestURI();%>">BACK</a>
-            <%}
-            %>
+                <h3> tou have selected autors(s):</h3>
+                <ol>
+                    <% for (int i = 0; i < autors.length; i++) {
+                    %>
+                    <li><%=autors[i]%></li>
+                        <%}%>
+                </ol>
+                <a href="<%=request.getRequestURI()%>">BACK</a>
+                <%}%>
+                
+            </h3>
+        </div>    
     </body>
 </html>
