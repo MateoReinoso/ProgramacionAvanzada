@@ -25,4 +25,15 @@ router.get('/:ci',(req, res)=>{
     });
 });
 
+router.delete('/:ci',(req, res)=>{
+    const {ci}= req.params;
+    mysqlConnection.query('DELETE FROM cliente WHERE ci = ?',[ci],(err,rows,fields)=>{
+        if(!err){
+            res.json({status: 'Cliente Eliminado'});
+        }else{
+            console.log(err);
+        }
+    });
+});
+
 module.exports = router;
