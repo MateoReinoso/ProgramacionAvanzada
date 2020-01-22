@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.example.app.Interface.Cliente;
-import com.example.app.Model.GetS;
+import com.example.app.Interface.Zona;
+import com.example.app.Model.GetZona;
 
 import java.util.List;
 
@@ -26,43 +26,38 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mJsonTxtView = findViewById(R.id.jsonText);
-        getClient();
+        getZona();
     }
 
-    private void getClient(){
+    private void getZona(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost:3001/")
+                .baseUrl("https://tercerfinal.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        Cliente jsonClient = retrofit.create(Cliente.class);
+        Zona jsonClient = retrofit.create(Zona.class);
 
-        Call<List<GetS>> call = jsonClient.getClient();
+        Call<List<GetZona>> call = jsonClient.getZona();
 
-        call.enqueue(new Callback<List<GetS>>() {
+        call.enqueue(new Callback<List<GetZona>>() {
             @Override
-            public void onResponse(Call<List<GetS>> call, Response<List<GetS>> response) {
+            public void onResponse(Call<List<GetZona>> call, Response<List<GetZona>> response) {
                 if(!response.isSuccessful()){
                     mJsonTxtView.setText("Codigo"+response.code());
                     return;
                 }
 
-                List<GetS> getSList = response.body();
-                for(GetS get: getSList){
+                List<GetZona> getZonaList = response.body();
+                for(GetZona get: getZonaList){
                     String content ="";
-                    content += "ci:" +get.getCi() +"\n";
-                    content += "ruc:" +get.getRuc() +"\n";
-                    content += "nombre:" +get.getNombre() +"\n";
-                    content += "direccion:" +get.getDireccion() +"\n";
-                    content += "telfconvencional:" +get.getTelfconvencional() +"\n";
-                    content += "telfcelular:" +get.getTelfcelular() +"\n";
-                    content += "correo:" +get.getCorreo() +"\n\n";
+                    content += "codigozona:" +get.getCodigozona()+"\n";
+                    content += "nombrezona:" +get.getNombrezona()+"\n";
                     mJsonTxtView.append(content);
                 }
             }
 
             @Override
-            public void onFailure(Call<List<GetS>> call, Throwable t) {
+            public void onFailure(Call<List<GetZona>> call, Throwable t) {
                 mJsonTxtView.setText(t.getMessage());
             }
         });

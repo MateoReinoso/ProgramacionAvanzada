@@ -1,6 +1,6 @@
 package com.example.app.Interface;
 
-import com.example.app.Model.GetS;
+import com.example.app.Model.GetCliente;
 
 import java.util.List;
 
@@ -9,6 +9,6 @@ import retrofit2.http.GET;
 
 public interface Cliente {
 
-    @GET("ci")
-    Call<List<GetS>> getClient();
+    @GET("cliente")
+    Call<List<GetCliente>> getCliente();
 }
