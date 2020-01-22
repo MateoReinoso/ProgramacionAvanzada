@@ -72,5 +72,16 @@ router.delete('/zona/:nombrezona',(req, res)=>{
 });
 
 
+router.delete('/zona/:codigozona',(req, res)=>{
+    const {codigozona}= req.params;
+    mysqlConnection.query('DELETE FROM zona WHERE codigozona = ?',[codigozona],(err,rows,fields)=>{
+        if(!err){
+            res.json({status: 'Eliminado'});
+        }else{
+            console.log(err);
+        }
+    });
+});
+
 
 module.exports = router;
