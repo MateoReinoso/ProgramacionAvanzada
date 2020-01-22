@@ -1,13 +1,16 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 
 //Settings
 
 app.set('port', process.env.PORT || 3001);
 
 //middlewares 
-app.use(express.json());
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended:false
+}));
 
 //routes
 app.use(require('./routes/apirest'));

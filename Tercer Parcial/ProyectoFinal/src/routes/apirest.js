@@ -23,7 +23,6 @@ router.get('/zona/',(req,res)=>{
 });
 
 
-
 router.get('/ci/:ci',(req, res)=>{
     const {ci}= req.params;
     console.log(ci);
@@ -35,6 +34,20 @@ router.get('/ci/:ci',(req, res)=>{
         }
     });
 });
+
+router.post('/codigozona/',(req, res)=>{
+    const{codigozona, nombrezona} = req.body;
+    mysqlConnection.query(`INSERT INTO zona VALUES ('${codigozona}','${nombrezona}')`,(err, rows)=>{
+        if(!err){
+            res.status(200).json('ok');
+        }else{
+            console.log(err);
+        }
+    });
+});
+
+
+
 
 router.delete('/cliente/:ci',(req, res)=>{
     const {ci}= req.params;
