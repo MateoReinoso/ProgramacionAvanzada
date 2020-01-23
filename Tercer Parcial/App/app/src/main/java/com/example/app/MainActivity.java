@@ -2,7 +2,10 @@ package com.example.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.app.Interface.Zona;
@@ -18,12 +21,23 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button btnMenu;
     private TextView mJsonTxtView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        btnMenu = (Button) findViewById(R.id.btnMenu);
+
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MENU.class);
+                startActivity(intent);
+            }
+        });
 
         mJsonTxtView = findViewById(R.id.jsonText);
         getZona();

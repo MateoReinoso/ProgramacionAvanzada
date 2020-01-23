@@ -48,7 +48,6 @@
         <Button
             android:id="@+id/btnProductos"
             app:backgroundTint="@color/colorPrimary"
-            app:backgroundTint="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Productos" />
