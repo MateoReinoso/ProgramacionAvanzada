@@ -10,45 +10,52 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginBottom="40dp"
         android:background="@drawable/transporte"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp"
         tools:layout_editor_absoluteX="4dp"
         tools:layout_editor_absoluteY="4dp">
 
         <Button
             android:id="@+id/btnCliente"
+            app:backgroundTint="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cliente" />
 
         <Button
             android:id="@+id/btnGuia"
+            app:backgroundTint="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="GUIA" />
 
         <Button
             android:id="@+id/btnDG"
+            app:backgroundTint="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="detalle guia" />
 
         <Button
             android:id="@+id/btnzona"
+            app:backgroundTint="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ZONA" />
 
         <Button
             android:id="@+id/btnProductos"
+            app:backgroundTint="@color/colorPrimary"
+            app:backgroundTint="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Productos" />
 
         <Button
             android:id="@+id/btntransportista"
+            app:backgroundTint="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="transportista" />
