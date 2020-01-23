@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".MENU">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/transporte"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="4dp">
+
+        <Button
+            android:id="@+id/btnCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cliente" />
+
+        <Button
+            android:id="@+id/btnGuia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GUIA" />
+
+        <Button
+            android:id="@+id/btnDG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="detalle guia" />
+
+        <Button
+            android:id="@+id/btnzona"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ZONA" />
+
+        <Button
+            android:id="@+id/btnProductos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Productos" />
+
+        <Button
+            android:id="@+id/btntransportista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="transportista" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
