@@ -11,8 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Cliente"></activity>
-        <activity android:name=".MENU"></activity>
+        <activity android:name=".Productos"></activity>
+        <activity android:name=".Guia" />
+        <activity android:name=".Transportista" />
+        <activity android:name=".Cliente" />
+        <activity android:name=".MENU" />
         <activity android:name=".Zona">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
