@@ -7,11 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.app.R;
-
 public class MENU extends AppCompatActivity {
 
-    Button btnZona;
+    Button btnZona, btnCliente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +21,16 @@ public class MENU extends AppCompatActivity {
         btnZona.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MENU.this, MainActivity.class);
+                Intent intent = new Intent(MENU.this, Zona.class);
+                startActivity(intent);
+            }
+        });
+
+        btnCliente = (Button) findViewById(R.id.btnCliente);
+        btnCliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MENU.this, Cliente.class);
                 startActivity(intent);
             }
         });

@@ -8,8 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.app.Interface.Zona;
-import com.example.app.Model.GetZona;
+import com.example.app.Model.GetCliente;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+public class Cliente extends AppCompatActivity {
 
     Button btnMenu;
     private TextView mJsonTxtView;
@@ -27,51 +26,58 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_cliente);
 
         btnMenu = (Button) findViewById(R.id.btnMenu);
 
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MENU.class);
+                Intent intent = new Intent(Cliente.this, MENU.class);
                 startActivity(intent);
             }
         });
 
         mJsonTxtView = findViewById(R.id.jsonText);
-        getZona();
+        getCliente();
+
     }
 
-    private void getZona(){
+    public void getCliente(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://tercerfinal.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        Zona jsonClient = retrofit.create(Zona.class);
+        com.example.app.Interface.Cliente jsonClient = retrofit.create(com.example.app.Interface.Cliente.class);
 
-        Call<List<GetZona>> call = jsonClient.getZona();
+        Call<List<GetCliente>> call = jsonClient.getCliente();
 
-        call.enqueue(new Callback<List<GetZona>>() {
+        call.enqueue(new Callback<List<GetCliente>>() {
             @Override
-            public void onResponse(Call<List<GetZona>> call, Response<List<GetZona>> response) {
+            public void onResponse(Call<List<GetCliente>> call, Response<List<GetCliente>> response) {
                 if(!response.isSuccessful()){
                     mJsonTxtView.setText("Codigo"+response.code());
                     return;
                 }
 
-                List<GetZona> getZonaList = response.body();
-                for(GetZona get: getZonaList){
+                List<GetCliente> getClienteList = response.body();
+                for (GetCliente get: getClienteList){
                     String content ="";
-                    content += "codigozona:" +get.getCodigozona()+"\n";
-                    content += "nombrezona:" +get.getNombrezona()+"\n";
+
+                    content += "Cedula: \n" +get.getCi()+"\n";
+                    content += "Ruc: \n" +get.getRuc()+"\n";
+                    content += "Nombre: \n" +get.getNombre()+"\n";
+                    content += "Direccion: \n" +get.getDireccion()+"\n";
+                    content += "Telfconvencional: \n" +get.getTelfconvencional()+"\n";
+                    content += "Telfcelular: \n" +get.getTelfcelular()+"\n";
+                    content += "Correo: \n" +get.getCorreo()+"\n\n";
                     mJsonTxtView.append(content);
                 }
             }
 
             @Override
-            public void onFailure(Call<List<GetZona>> call, Throwable t) {
+            public void onFailure(Call<List<GetCliente>> call, Throwable t) {
                 mJsonTxtView.setText(t.getMessage());
             }
         });
